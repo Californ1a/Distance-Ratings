@@ -1,0 +1,23 @@
+{
+	"name": "distance-glicko2-ratings",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"author": "Californ1a (https://github.com/Californ1a)",
+	"license": "MIT",
+	"devDependencies": {
+		"eslint": "^7.8.1",
+		"eslint-config-airbnb-base": "^14.2.0",
+		"eslint-plugin-import": "^2.22.0"
+	},
+	"dependencies": {
+		"colors": "^1.4.0",
+		"dotenv": "^8.2.0",
+		"glicko2": "^0.8.4",
+		"json2csv": "^5.0.1",
+		"node-fetch": "^2.6.1"
+	}
+}
