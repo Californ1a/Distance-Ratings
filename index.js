@@ -8,15 +8,16 @@ const {
 } = require("json2csv");
 const fs = require("fs");
 
-const minMatchesPerPlayer = process.env.MIN_MATCHES_PER_PLAYER || 10;
-const matchCountBeforeRankingUpdate = process.env.MATCH_COUNT_BEFORE_RANKING_UPDATE || 20;
+const minMatchesPerPlayer = parseInt(process.env.MIN_MATCHES_PER_PLAYER, 10) || 10;
+const matchCountBeforeRankUp = parseInt(process.env.MATCH_COUNT_BEFORE_RANKING_UPDATE, 10) || 20;
+const includeLink = parseInt(process.env.INCLUDE_LINK, 10) || 0;
 
 const url = "http://seekr.pw/distance-log/changelist.json";
 const settings = {
-	tau: process.env.DEFAULT_GLICKO_TAU || 0.5,
-	rating: process.env.DEFAULT_GLICKO_RATING || 1500,
-	rd: process.env.DEFAULT_GLICKO_RATING_DEVIATION || 200,
-	vol: process.env.DEFAULT_GLICKO_VOLATILITY || 0.06,
+	tau: parseInt(process.env.DEFAULT_GLICKO_TAU, 10) || 0.5,
+	rating: parseInt(process.env.DEFAULT_GLICKO_RATING, 10) || 1500,
+	rd: parseInt(process.env.DEFAULT_GLICKO_RATING_DEVIATION, 10) || 200,
+	vol: parseInt(process.env.DEFAULT_GLICKO_VOLATILITY, 10) || 0.06,
 };
 const ranking = new glicko2.Glicko2(settings);
 
@@ -118,7 +119,7 @@ async function createRatings(entries) {
 			const newWRHolder = players.find(p => p.steamID === entry.steam_id_new_recordholder).player;
 			matches.push([newWRHolder, oldWRHolder, 1]);
 		}
-		if (i % matchCountBeforeRankingUpdate === 0) {
+		if (i % matchCountBeforeRankUp === 0) {
 			ranking.updateRatings(matches);
 		}
 	}
@@ -138,7 +139,7 @@ async function printRatings(players) {
 			const steamUser = steamUsers.find(user => user.steamid === player.steamID);
 			const steamName = steamUser.personaname;
 			const link = `=HYPERLINK("https://steamcommunity.com/profiles/${player.steamID}", "${steamName}")`;
-			const name = (process.env.INCLUDE_LINK === "1") ? link : steamName;
+			const name = (includeLink === 1) ? link : steamName;
 			ratingLines.push({
 				name,
 				steamID: player.steamID,
