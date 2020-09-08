@@ -1,6 +1,6 @@
 # Distance Glicko2 Ratings
 
-Read more on glicko2 [here](http://glicko.net/glicko.html). Glicko matches based on WR Log, filtering out non-Sprint maps, entries where a person beat their own time (not against someone else), and matches including people who have a small number of total occurrances (configurable, default minimum 10 WR Log entries).
+Read more on glicko2 [here](http://glicko.net/glicko.html). Glicko matches based on WR Log, filtering out non-Sprint maps, entries where a person beat their own time (not against someone else), and entries including people who have a small number of total occurrances (configurable, default minimum 10 WR Log entries).
 
 ## Usage
 
