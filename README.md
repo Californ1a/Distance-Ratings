@@ -37,3 +37,7 @@ DEFAULT_GLICKO_VOLATILITY=0.06
 ```
 
 Run `npm install`,  `npm start`, and get the output `ratings.csv`.
+
+## Sample Output
+
+[Google Sheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vQcypGn_chsOinj2Ab72hv6IqrSs7mQ_Obev8QVIFUXCCoX4yllZ3ojq44UJKAQ4bRoHxp1FruxTTpg/pubhtml)
