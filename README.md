@@ -36,4 +36,4 @@ DEFAULT_GLICKO_RATING_DEVIATION=200
 DEFAULT_GLICKO_VOLATILITY=0.06
 ```
 
-Run `npm start` and get the output `ratings.csv`.
+Run `npm install`,  `npm start`, and get the output `ratings.csv`.
