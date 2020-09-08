@@ -9,7 +9,7 @@ async function printRatings({
 	while (sortedPlayers.length > 0) {
 		const top100 = sortedPlayers.splice(0, 100);
 		const steamIDs = top100.map(player => player.steamID);
-		const steamUsers = await getSteamUsers(steamIDs);
+		const steamUsers = await getSteamUsers(steamIDs); // eslint-disable-line no-await-in-loop
 		for (const player of top100) {
 			const steamUser = steamUsers.find(user => user.steamid === player.steamID);
 			const steamName = steamUser.personaname;

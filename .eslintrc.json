@@ -2,11 +2,13 @@
 	"env": {
 		"commonjs": true,
 		"es6": true,
-		"node": true
+		"node": true,
+		"jest/globals": true
 	},
-	"plugins": [],
+	"plugins": ["jest"],
 	"extends": [
-		"airbnb-base"
+		"airbnb-base",
+		"plugin:jest/recommended"
 	],
 	"globals": {
 		"Atomics": "readonly",
@@ -40,7 +42,6 @@
 		}],
 		"no-tabs": 0,
 		"no-console": 0,
-		"no-nested-ternary": 0,
-		"no-await-in-loop": 0
+		"no-nested-ternary": 0
 	}
 }
