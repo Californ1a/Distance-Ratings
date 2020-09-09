@@ -29,9 +29,14 @@ describe("printRatings", () => {
 		console.log = jest.fn(() => {});
 		const players = [{
 			steamID: "123",
-			player: {
+			glicko: {
 				getRating: () => 1,
 			},
+			elo: 1,
+			winCount: 1,
+			loseCount: 1,
+			totalMatches: 1,
+			winPercent: 1,
 		}];
 		const data = printRatings(players);
 		await expect(data).resolves.toBeUndefined();
@@ -40,7 +45,12 @@ describe("printRatings", () => {
 		expect(mockParse).toHaveBeenCalledWith([{
 			name: "Test",
 			steamID: "123",
-			rating: 1,
+			glicko: 1,
+			elo: 1,
+			winCount: 1,
+			loseCount: 1,
+			totalMatches: 1,
+			winPercent: "1.00%",
 		}]);
 		expect(mockfs.writeFile).toHaveBeenCalledWith("ratings.csv", []);
 	});

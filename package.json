@@ -7,8 +7,12 @@
 		"start": "node src/index.js",
 		"test": "jest tests/ --coverage",
 		"watch": "jest tests/ --watch",
-		"lint": "eslint .",
-		"prepush": "npm run lint && npm test"
+		"lint": "eslint ."
+	},
+	"husky": {
+		"hooks": {
+			"pre-push": "npm run lint && npm test"
+		}
 	},
 	"author": "Californ1a (https://github.com/Californ1a)",
 	"license": "MIT",
@@ -24,6 +28,7 @@
 	"dependencies": {
 		"colors": "^1.4.0",
 		"dotenv": "^8.2.0",
+		"elo-rank": "^1.0.4",
 		"glicko2": "^0.8.4",
 		"json2csv": "^5.0.1",
 		"node-fetch": "^2.6.1"

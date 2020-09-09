@@ -4,7 +4,7 @@ async function printRatings({
 	Parser,
 }, players, includeLink = 0) {
 	console.log(players.length);
-	const sortedPlayers = players.sort((a, b) => b.player.getRating() - a.player.getRating());
+	const sortedPlayers = players.sort((a, b) => b.winPercent - a.winPercent);
 	const ratingLines = [];
 	while (sortedPlayers.length > 0) {
 		const top100 = sortedPlayers.splice(0, 100);
@@ -18,7 +18,12 @@ async function printRatings({
 			ratingLines.push({
 				name,
 				steamID: player.steamID,
-				rating: player.player.getRating(),
+				glicko: player.glicko.getRating(),
+				elo: player.elo,
+				winCount: player.winCount,
+				loseCount: player.loseCount,
+				totalMatches: player.totalMatches,
+				winPercent: `${player.winPercent.toFixed(2)}%`,
 			});
 		}
 	}
@@ -31,7 +36,22 @@ async function printRatings({
 		value: "steamID",
 	}, {
 		label: "Glicko2 Rating",
-		value: "rating",
+		value: "glicko",
+	}, {
+		label: "ELO Rating",
+		value: "elo",
+	}, {
+		label: "Win Count",
+		value: "winCount",
+	}, {
+		label: "Lose Count",
+		value: "loseCount",
+	}, {
+		label: "Total Matches",
+		value: "totalMatches",
+	}, {
+		label: "Win Percent",
+		value: "winPercent",
 	}];
 
 	const json2csvParser = new Parser({
