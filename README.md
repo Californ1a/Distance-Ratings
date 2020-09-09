@@ -56,4 +56,4 @@ Run `npm install`,  `npm start`, and get the output `ratings.csv`.
 
 [Google Sheet](https://docs.google.com/spreadsheets/d/1TRuOWLBee6tS87g48fsZBisVINV81Q0r_Ayqz17fsGg/edit?usp=sharing) - [pubhtml](https://docs.google.com/spreadsheets/d/e/2PACX-1vQcypGn_chsOinj2Ab72hv6IqrSs7mQ_Obev8QVIFUXCCoX4yllZ3ojq44UJKAQ4bRoHxp1FruxTTpg/pubhtml)
 
-![](https://i.imgur.com/ZkTNlHE.png)
+[![](https://i.imgur.com/ZkTNlHE.png)](https://docs.google.com/spreadsheets/d/1TRuOWLBee6tS87g48fsZBisVINV81Q0r_Ayqz17fsGg/edit?usp=sharing)
