@@ -1,4 +1,4 @@
-async function createRatings(ranking, entries, matchCountBeforeRankUp = 20) {
+function createRatings(ranking, entries, matchCountBeforeRankUp = 20) {
 	// make players
 	const players = [];
 	const playerIDs = [];

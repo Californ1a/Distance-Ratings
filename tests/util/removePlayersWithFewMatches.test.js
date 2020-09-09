@@ -2,6 +2,7 @@ const removePlayersWithFewMatches = require("../../src/util/removePlayersWithFew
 
 describe("removePlayersWithFewMatches", () => {
 	it("removes entires containing players who have < min matches amount", () => {
+		expect.assertions(1);
 		const baseData = [{
 			mode: "Sprint",
 			steam_id_old_recordholder: "Name",
@@ -29,6 +30,7 @@ describe("removePlayersWithFewMatches", () => {
 		expect(data).toEqual(testData);
 	});
 	it("recursively removes entries", () => {
+		expect.assertions(1);
 		const baseData = [{
 			mode: "Sprint",
 			steam_id_old_recordholder: "Name",

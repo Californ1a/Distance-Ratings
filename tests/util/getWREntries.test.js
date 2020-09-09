@@ -12,7 +12,15 @@ const getEntries = getEntriesFactory({
 });
 
 describe("getEntries", () => {
+	it("calls fetch", async () => {
+		expect.assertions(2);
+		const url = "http://seekr.pw/distance-log/changelist.json";
+		await getEntries(url);
+		expect(mockFetch).toHaveBeenCalled();
+		expect(mockFetch).toHaveBeenCalledWith(url);
+	});
 	it("returns json for given url", async () => {
+		expect.assertions(1);
 		const url = "http://seekr.pw/distance-log/changelist.json";
 		const data = await getEntries(url);
 		expect(data).toEqual({

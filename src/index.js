@@ -25,7 +25,7 @@ const url = "http://seekr.pw/distance-log/changelist.json";
 
 async function main() {
 	const entries = await filterEntries(url, minMatchesPerPlayer);
-	const players = await createRatings(ranking, entries, matchCountBeforeRankUp);
+	const players = createRatings(ranking, entries, matchCountBeforeRankUp);
 	await printRatings(players, includeLink);
 	console.log(`Success - Wrote to ${path.join(__dirname, "../ratings.csv")}`);
 }
