@@ -28,6 +28,7 @@ describe("createRatings", () => {
 		const data = createRatings({
 			glicko,
 			elo,
+			defaultRating: 1500,
 		}, entries, 2);
 		expect(data.length).toBe(2);
 		expect(data[0].steamID).toBe("123");
