@@ -41,6 +41,7 @@ describe("printRatings", () => {
 		const data = printRatings(players);
 		await expect(data).resolves.toBeUndefined();
 		expect(mockGetSteamUsers).toHaveBeenCalledWith(["123"]);
+		expect(console.log).toHaveBeenCalled();
 		expect(mockParser).toHaveBeenCalled();
 		expect(mockParse).toHaveBeenCalledWith([{
 			name: "Test",

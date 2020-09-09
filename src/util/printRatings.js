@@ -3,7 +3,7 @@ async function printRatings({
 	fs,
 	Parser,
 }, players, includeLink = 0) {
-	console.log(players.length);
+	console.log(`Found ${players.length} players after filtering.`);
 	const sortedPlayers = players.sort((a, b) => b.winPercent - a.winPercent);
 	const ratingLines = [];
 	while (sortedPlayers.length > 0) {
