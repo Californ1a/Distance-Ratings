@@ -5,8 +5,10 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "node src/index.js",
-		"test": "jest tests/",
-		"watch": "jest tests/ --watch"
+		"test": "jest tests/ --coverage",
+		"watch": "jest tests/ --watch",
+		"lint": "eslint .",
+		"prepush": "npm run lint && npm test"
 	},
 	"author": "Californ1a (https://github.com/Californ1a)",
 	"license": "MIT",
@@ -16,6 +18,7 @@
 		"eslint-config-airbnb-base": "^14.2.0",
 		"eslint-plugin-import": "^2.22.0",
 		"eslint-plugin-jest": "^24.0.0",
+		"husky": "^4.3.0",
 		"jest": "^26.4.2"
 	},
 	"dependencies": {
