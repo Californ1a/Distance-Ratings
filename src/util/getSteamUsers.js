@@ -2,7 +2,8 @@ async function getSteamUsers({
 	fetch,
 	colors,
 }, steamids) {
-	if (!process.env.STEAM_API_KEY) {
+	const KEY = process.env.STEAM_API_KEY;
+	if (!KEY || typeof KEY !== "string" || KEY === "") {
 		throw new Error("No Steam API key provided.");
 	}
 	const params = new URLSearchParams({
@@ -12,7 +13,7 @@ async function getSteamUsers({
 		headers: {
 			"cache-control": "no-cache",
 			"Content-Type": "application/x-www-form-urlencoded",
-			"x-webapi-key": process.env.STEAM_API_KEY,
+			"x-webapi-key": KEY,
 		},
 		form: false,
 	};
