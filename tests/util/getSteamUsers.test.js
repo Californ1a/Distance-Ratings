@@ -11,12 +11,17 @@ const mockFetch = jest.fn(() => Promise.resolve({
 		},
 	}),
 }));
+const mockFetchErr = jest.fn(() => Promise.reject());
 const saveLog = console.log;
 const colorsMock = {
 	green: jest.fn(a => a),
 };
 const getSteamUsers = getSteamUsersFactory({
 	fetch: mockFetch,
+	colors: colorsMock,
+});
+const getSteamUsersErr = getSteamUsersFactory({
+	fetch: mockFetchErr,
 	colors: colorsMock,
 });
 
@@ -32,6 +37,16 @@ describe("getSteamUsers", () => {
 		expect.assertions(1);
 		const steamids = ["123", "456"];
 		await expect(getSteamUsers(steamids)).rejects.toThrow("No Steam API key provided.");
+	});
+	it("throws if fetch errors", async () => {
+		expect.assertions(1);
+		console.log = jest.fn(() => {});
+		const key = "test_key";
+		process.env = Object.assign(process.env, {
+			STEAM_API_KEY: key,
+		});
+		const steamids = ["123", "456"];
+		await expect(getSteamUsersErr(steamids)).rejects.toThrow("");
 	});
 	it("returns data for given steamids", async () => {
 		expect.assertions(4);

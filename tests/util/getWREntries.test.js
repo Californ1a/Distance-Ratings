@@ -10,6 +10,10 @@ const mockFetch = jest.fn(() => Promise.resolve({
 const getEntries = getEntriesFactory({
 	fetch: mockFetch,
 });
+const mockFetchErr = jest.fn(() => Promise.reject());
+const getEntriesErr = getEntriesFactory({
+	fetch: mockFetchErr,
+});
 
 describe("getEntries", () => {
 	it("calls fetch", async () => {
@@ -28,5 +32,10 @@ describe("getEntries", () => {
 				json: "data",
 			},
 		});
+	});
+	it("throws if fetch errors", async () => {
+		expect.assertions(1);
+		const url = "http://seekr.pw/distance-log/changelist.json";
+		await expect(getEntriesErr(url)).rejects.toThrow("");
 	});
 });

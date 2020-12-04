@@ -7,6 +7,9 @@ const mockGetSteamUsers = jest.fn(() => [{
 const mockfs = {
 	writeFile: jest.fn(() => {}),
 };
+const mockfsErr = {
+	writeFile: jest.fn(() => Promise.reject()),
+};
 const mockParse = jest.fn(() => []);
 const mockParser = jest.fn(() => ({
 	parse: mockParse,
@@ -15,6 +18,11 @@ const mockParser = jest.fn(() => ({
 const printRatings = printRatingsFactory({
 	getSteamUsers: mockGetSteamUsers,
 	fs: mockfs,
+	Parser: mockParser,
+});
+const printRatingsErr = printRatingsFactory({
+	getSteamUsers: mockGetSteamUsers,
+	fs: mockfsErr,
 	Parser: mockParser,
 });
 
@@ -54,5 +62,21 @@ describe("printRatings", () => {
 			winPercent: "1.00%",
 		}]);
 		expect(mockfs.writeFile).toHaveBeenCalledWith("ratings.csv", []);
+	});
+	it("throws if fs errors", async () => {
+		console.log = jest.fn(() => {});
+		const players = [{
+			steamID: "123",
+			glicko: {
+				getRating: () => 1,
+			},
+			elo: 1,
+			winCount: 1,
+			loseCount: 1,
+			totalMatches: 1,
+			winPercent: 1,
+		}];
+		const data = printRatingsErr(players);
+		await expect(data).rejects.toThrow("");
 	});
 });
