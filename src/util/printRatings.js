@@ -12,7 +12,7 @@ async function printRatings({
 		const steamUsers = await getSteamUsers(steamIDs); // eslint-disable-line no-await-in-loop
 		for (const player of top100) {
 			const steamUser = steamUsers.find(user => user.steamid === player.steamID);
-			const steamName = steamUser.personaname;
+			const steamName = (steamUser) ? steamUser.personaname : player.steamID;
 			const link = `=HYPERLINK("https://steamcommunity.com/profiles/${player.steamID}", "${steamName}")`;
 			const name = (includeLink === 1) ? link : steamName;
 			ratingLines.push({
