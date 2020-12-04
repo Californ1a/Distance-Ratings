@@ -2,7 +2,7 @@
 
 Read more on Glicko2 [here](https://en.wikipedia.org/wiki/Glicko_rating_system) & [here](http://glicko.net/glicko.html).
 
-Read more on ELO [here](https://en.wikipedia.org/wiki/Elo_rating_system).
+Read more on Elo [here](https://en.wikipedia.org/wiki/Elo_rating_system).
 
 Matches are based on [WR Log](https://seekr.pw/distance-log/), using the new record holder as the match winner, and the old record holder as the match loser. The following are filtered out of the entry list to get fairer ratings:
 
@@ -43,7 +43,7 @@ DEFAULT_GLICKO_RATING_DEVIATION=200
 // Expected fluctuation on player ratings (speed of rating evolution).
 DEFAULT_GLICKO_VOLATILITY=0.06
 
-// Default rating used for ELO.
+// Default rating used for Elo.
 DEFAULT_ELO_RATING=1500
 
 // Max amount each match can change a player's ELO rating.
@@ -54,6 +54,6 @@ Run `npm install`,  `npm start`, and get the output `ratings.csv`.
 
 ## Sample Output
 
-[Google Sheet](https://docs.google.com/spreadsheets/d/e/2PACX-1vQcypGn_chsOinj2Ab72hv6IqrSs7mQ_Obev8QVIFUXCCoX4yllZ3ojq44UJKAQ4bRoHxp1FruxTTpg/pubhtml)
+[Google Sheet](https://docs.google.com/spreadsheets/d/1TRuOWLBee6tS87g48fsZBisVINV81Q0r_Ayqz17fsGg/edit?usp=sharing) - [pubhtml](https://docs.google.com/spreadsheets/d/e/2PACX-1vQcypGn_chsOinj2Ab72hv6IqrSs7mQ_Obev8QVIFUXCCoX4yllZ3ojq44UJKAQ4bRoHxp1FruxTTpg/pubhtml)
 
-![](https://i.imgur.com/ZkTNlHE.png)
+[![](https://i.imgur.com/ZkTNlHE.png)](https://docs.google.com/spreadsheets/d/1TRuOWLBee6tS87g48fsZBisVINV81Q0r_Ayqz17fsGg/edit?usp=sharing)
